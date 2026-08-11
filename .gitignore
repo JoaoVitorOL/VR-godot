@@ -1,3 +1,21 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# C# / .NET
+.mono/
+bin/
+obj/
+
+# IDE
+.vscode/
+.idea/
+.vs/
+
+# Visual Studio
+*.user
+*.suo
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
