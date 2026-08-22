@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6akbitq4g2h"]
 
-[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="1_0qxqa"]
-[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_knajx"]
+[sub_resource type="BoxMesh" id="BoxMesh_bd5tc"]
+size = Vector3(0.2, 0.2, 0.2)
 
 [node name="XROrigin3D" type="XROrigin3D" unique_id=1732415484]
 
@@ -10,9 +10,11 @@
 [node name="RightHand" type="XRController3D" parent="." unique_id=2105200422]
 tracker = &"right_hand"
 
-[node name="RightHand" parent="RightHand" unique_id=716964713 instance=ExtResource("1_0qxqa")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand" unique_id=238017774]
+mesh = SubResource("BoxMesh_bd5tc")
 
 [node name="LeftHand" type="XRController3D" parent="." unique_id=1781949641]
 tracker = &"left_hand"
 
-[node name="LeftHand" parent="LeftHand" unique_id=2142129369 instance=ExtResource("2_knajx")]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LeftHand" unique_id=2044059268]
+mesh = SubResource("BoxMesh_bd5tc")
