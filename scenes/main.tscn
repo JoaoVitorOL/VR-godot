@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkoplg12qyyy1"]
 
-[ext_resource type="Script" uid="uid://b4texge5sjdjb" path="res://scenes/xr_interface.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://b4texge5sjdjb" path="res://scripts/xr_interface.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c6akbitq4g2h" path="res://scenes/xr_origin.tscn" id="2_0wfyh"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0wfyh"]

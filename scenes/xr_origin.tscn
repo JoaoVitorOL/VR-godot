@@ -1,20 +1,55 @@
 [gd_scene format=3 uid="uid://c6akbitq4g2h"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_bd5tc"]
-size = Vector3(0.2, 0.2, 0.2)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7nii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ufli"]
 
 [node name="XROrigin3D" type="XROrigin3D" unique_id=1732415484]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=612480757]
 
 [node name="RightHand" type="XRController3D" parent="." unique_id=2105200422]
-tracker = &"right_hand"
+tracker = &"/user/hand_tracker/right"
+show_when_tracked = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand" unique_id=238017774]
-mesh = SubResource("BoxMesh_bd5tc")
+[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="RightHand" unique_id=1069284659]
+hand = 1
+material = SubResource("StandardMaterial3D_m7nii")
+bones/0/name = "RightPalm"
+bones/1/name = "RightHand"
+bones/2/name = "RightThumbMetacarpal"
+bones/3/name = "RightThumbProximal"
+bones/4/name = "RightThumbDistal"
+bones/5/name = "RightThumbTip"
+bones/6/name = "RightIndexMetacarpal"
+bones/7/name = "RightIndexProximal"
+bones/8/name = "RightIndexIntermediate"
+bones/9/name = "RightIndexDistal"
+bones/10/name = "RightIndexTip"
+bones/11/name = "RightMiddleMetacarpal"
+bones/12/name = "RightMiddleProximal"
+bones/13/name = "RightMiddleIntermediate"
+bones/14/name = "RightMiddleDistal"
+bones/15/name = "RightMiddleTip"
+bones/16/name = "RightRingMetacarpal"
+bones/17/name = "RightRingProximal"
+bones/18/name = "RightRingIntermediate"
+bones/19/name = "RightRingDistal"
+bones/20/name = "RightRingTip"
+bones/21/name = "RightLittleMetacarpal"
+bones/22/name = "RightLittleProximal"
+bones/23/name = "RightLittleIntermediate"
+bones/24/name = "RightLittleDistal"
+bones/25/name = "RightLittleTip"
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHand/OpenXRFbHandTrackingMesh" unique_id=1293682802]
+hand_tracker = &"/user/hand_tracker/right"
 
 [node name="LeftHand" type="XRController3D" parent="." unique_id=1781949641]
-tracker = &"left_hand"
+tracker = &"/user/hand_tracker/left"
+show_when_tracked = true
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LeftHand" unique_id=2044059268]
-mesh = SubResource("BoxMesh_bd5tc")
+[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="LeftHand" unique_id=2095426737]
+material = SubResource("StandardMaterial3D_5ufli")
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHand/OpenXRFbHandTrackingMesh" unique_id=1485741781]
