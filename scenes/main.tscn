@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b4texge5sjdjb" path="res://scripts/xr_interface.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c6akbitq4g2h" path="res://scenes/xr_origin.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://d30yfgtppwy3n" path="res://scenes/pickable_pink_box.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dg6ra73bl1pmg" path="res://scenes/obstacle.tscn" id="4_jyhfs"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0wfyh"]
 
@@ -10,6 +12,12 @@ size = Vector3(80, 5, 80)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
 size = Vector3(80, 5, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7nii"]
+size = Vector3(1, 2.1206055, 2.43)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m7nii"]
+size = Vector3(1, 2.121, 2.43)
 
 [node name="xr_interface" type="Node3D" unique_id=41808954]
 script = ExtResource("1_0wfyh")
@@ -21,6 +29,23 @@ camera_attributes = SubResource("CameraAttributesPractical_0wfyh")
 transform = Transform3D(1, 0, 0, 0, -0.057145845, 0.9983659, 0, -0.9983659, -0.057145845, 0, 53.020153, 0)
 shadow_enabled = true
 
+[node name="pickable" type="Node" parent="." unique_id=2084779802]
+
+[node name="PickableObject" parent="pickable" unique_id=609690289 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.131397, 4.730282, 0)
+
+[node name="PickableObject2" parent="pickable" unique_id=2026609180 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.131397, 4.730282, -0.5524287)
+
+[node name="PickableObject3" parent="pickable" unique_id=711345668 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.131397, 4.730282, -1.0119295)
+
+[node name="PickableObject4" parent="pickable" unique_id=519421951 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.131397, 4.730282, 0.6916294)
+
+[node name="PickableObject5" parent="pickable" unique_id=1576609068 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.131397, 4.730282, 0.3740602)
+
 [node name="floor" type="StaticBody3D" parent="." unique_id=132441923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7894058)
 
@@ -31,4 +56,20 @@ shape = SubResource("BoxShape3D_sgp6g")
 mesh = SubResource("BoxMesh_o5qli")
 
 [node name="XROrigin3D" parent="." unique_id=1732415484 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.649331, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8594992, 0)
+
+[node name="table" type="StaticBody3D" parent="." unique_id=125253209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4854126, 3.0494993, -0.05972159)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="table" unique_id=1873149517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
+shape = SubResource("BoxShape3D_m7nii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="table/CollisionShape3D" unique_id=1766900779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
+mesh = SubResource("BoxMesh_m7nii")
+
+[node name="obstacle" parent="." unique_id=509624791 instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5.4368424)
+
+[editable path="XROrigin3D"]
