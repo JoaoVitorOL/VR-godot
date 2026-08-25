@@ -18,16 +18,16 @@ albedo_color = Color(0.9098039, 0.30588236, 0.85882354, 1)
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_khbl8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1956986505]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0" unique_id=1956986505]
 mesh = SubResource("BoxMesh_m7nii")
 surface_material_override/0 = SubResource("StandardMaterial3D_5ufli")
 
-[node name="GrabPointHandLeft" parent="." index="2" unique_id=7512854 instance=ExtResource("2_0yflo")]
+[node name="GrabPointHandLeft" parent="." index="1" unique_id=7512854 instance=ExtResource("2_0yflo")]
 transform = Transform3D(0.95885783, 0, 0.2838866, 0, 1, 0, -0.2838866, 0, 0.95885783, -0.037436694, 0.037651032, -0.029298894)
 visible = true
 editor_preview_mode = 1
 
-[node name="GrabPointHandRight" parent="." index="3" unique_id=374596287 instance=ExtResource("3_pt0gu")]
+[node name="GrabPointHandRight" parent="." index="2" unique_id=374596287 instance=ExtResource("3_pt0gu")]
 transform = Transform3D(0.9843756, 0, -0.17608142, 0, 1, 0, 0.17608142, 0, 0.9843756, 0.03644421, 0.03817592, -0.05124657)
 visible = true
 editor_preview_mode = 1

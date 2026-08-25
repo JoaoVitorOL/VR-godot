@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cw6341d4tm6tw"]
+
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="1_438mq"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_30ug7"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_bj6nn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ufli"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lrr5"]
+albedo_color = Color(0.26, 0.0338, 0.0338, 0.8901961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m7nii"]
+material = SubResource("StandardMaterial3D_0lrr5")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Climbable" unique_id=1444490573 instance=ExtResource("1_438mq")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_5ufli")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0" unique_id=1036329603]
+mesh = SubResource("BoxMesh_m7nii")
+
+[node name="GrabPointHandLeft" parent="." index="1" unique_id=1963225635 instance=ExtResource("2_30ug7")]
+transform = Transform3D(-0.019720988, 0.9998055, 0, -0.732741, -0.014453188, -0.6803541, -0.6802218, -0.013417256, 0.7328835, 0.04020299, 0.07277183, 0)
+visible = true
+
+[node name="GrabPointHandRight" parent="." index="2" unique_id=786167682 instance=ExtResource("3_bj6nn")]
+transform = Transform3D(0.008531888, -0.9999144, -0.009910992, 0.66929054, 0.013074143, -0.74288577, 0.74295175, -0.00029511773, 0.6693449, -0.037624888, 0.09516561, 0)
+visible = true
