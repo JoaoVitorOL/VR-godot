@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c6akbitq4g2h"]
 
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_knajx"]
-[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="1_su0si"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="1_su0si"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_bc51u"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_su0si"]
-[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_bc51u"]
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="3_bc51u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ufli"]
 
@@ -17,7 +18,10 @@ current = true
 tracker = &"right_hand"
 show_when_tracked = true
 
-[node name="RightHand" parent="RightHand" unique_id=1885269269 instance=ExtResource("1_su0si")]
+[node name="RightHand" parent="RightHand" unique_id=1592040454 instance=ExtResource("1_su0si")]
+
+[node name="MovementTurn" parent="RightHand" unique_id=2082177477 instance=ExtResource("2_bc51u")]
+turn_mode = 2
 
 [node name="LeftHand" type="XRController3D" parent="." unique_id=1781949641]
 tracker = &"left_hand"
@@ -27,7 +31,7 @@ show_when_tracked = true
 max_speed = 5.0
 strafe = true
 
-[node name="LeftHand" parent="LeftHand" unique_id=196292188 instance=ExtResource("3_bc51u")]
+[node name="LeftHand" parent="LeftHand" unique_id=217375751 instance=ExtResource("3_bc51u")]
 
 [node name="PlayerBody" parent="." unique_id=1102527396 instance=ExtResource("2_su0si")]
 
