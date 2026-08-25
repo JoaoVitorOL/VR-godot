@@ -6,10 +6,10 @@
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0wfyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
-size = Vector3(140, 5, 140)
+size = Vector3(80, 5, 80)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
-size = Vector3(140, 5, 140)
+size = Vector3(80, 5, 80)
 
 [node name="xr_interface" type="Node3D" unique_id=41808954]
 script = ExtResource("1_0wfyh")
@@ -22,6 +22,7 @@ transform = Transform3D(1, 0, 0, 0, -0.057145845, 0.9983659, 0, -0.9983659, -0.0
 shadow_enabled = true
 
 [node name="floor" type="StaticBody3D" parent="." unique_id=132441923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7894058)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1400794984]
 shape = SubResource("BoxShape3D_sgp6g")
@@ -30,4 +31,4 @@ shape = SubResource("BoxShape3D_sgp6g")
 mesh = SubResource("BoxMesh_o5qli")
 
 [node name="XROrigin3D" parent="." unique_id=1732415484 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4854722, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.649331, 0)

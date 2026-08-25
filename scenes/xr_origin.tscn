@@ -1,57 +1,36 @@
 [gd_scene format=3 uid="uid://c6akbitq4g2h"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7nii"]
-albedo_color = Color(1, 0, 1, 1)
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_knajx"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="1_su0si"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_su0si"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_bc51u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ufli"]
-albedo_color = Color(1, 0, 1, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ufli"]
 
 [node name="XROrigin3D" type="XROrigin3D" unique_id=1732415484]
+current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=612480757]
+current = true
 
 [node name="RightHand" type="XRController3D" parent="." unique_id=2105200422]
-tracker = &"/user/hand_tracker/right"
+tracker = &"right_hand"
 show_when_tracked = true
 
-[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="RightHand" unique_id=1069284659]
-hand = 1
-material = SubResource("StandardMaterial3D_m7nii")
-bones/0/name = "RightPalm"
-bones/1/name = "RightHand"
-bones/2/name = "RightThumbMetacarpal"
-bones/3/name = "RightThumbProximal"
-bones/4/name = "RightThumbDistal"
-bones/5/name = "RightThumbTip"
-bones/6/name = "RightIndexMetacarpal"
-bones/7/name = "RightIndexProximal"
-bones/8/name = "RightIndexIntermediate"
-bones/9/name = "RightIndexDistal"
-bones/10/name = "RightIndexTip"
-bones/11/name = "RightMiddleMetacarpal"
-bones/12/name = "RightMiddleProximal"
-bones/13/name = "RightMiddleIntermediate"
-bones/14/name = "RightMiddleDistal"
-bones/15/name = "RightMiddleTip"
-bones/16/name = "RightRingMetacarpal"
-bones/17/name = "RightRingProximal"
-bones/18/name = "RightRingIntermediate"
-bones/19/name = "RightRingDistal"
-bones/20/name = "RightRingTip"
-bones/21/name = "RightLittleMetacarpal"
-bones/22/name = "RightLittleProximal"
-bones/23/name = "RightLittleIntermediate"
-bones/24/name = "RightLittleDistal"
-bones/25/name = "RightLittleTip"
-
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHand/OpenXRFbHandTrackingMesh" unique_id=1293682802]
-hand_tracker = &"/user/hand_tracker/right"
+[node name="RightHand" parent="RightHand" unique_id=1885269269 instance=ExtResource("1_su0si")]
 
 [node name="LeftHand" type="XRController3D" parent="." unique_id=1781949641]
-tracker = &"/user/hand_tracker/left"
+tracker = &"left_hand"
 show_when_tracked = true
 
-[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="LeftHand" unique_id=2095426737]
-material = SubResource("StandardMaterial3D_5ufli")
+[node name="MovementDirect" parent="LeftHand" unique_id=1921862027 instance=ExtResource("1_knajx")]
+max_speed = 5.0
+strafe = true
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHand/OpenXRFbHandTrackingMesh" unique_id=1485741781]
+[node name="LeftHand" parent="LeftHand" unique_id=196292188 instance=ExtResource("3_bc51u")]
+
+[node name="PlayerBody" parent="." unique_id=1102527396 instance=ExtResource("2_su0si")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody" unique_id=1048758421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35949937, 0)
+shape = SubResource("CapsuleShape3D_5ufli")
