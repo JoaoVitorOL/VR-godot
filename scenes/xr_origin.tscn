@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="3_bc51u"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_mrmx0"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="4_32p2k"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_0k3r6"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="7_3egvh"]
 [ext_resource type="Script" uid="uid://cjfu28jmrajlo" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="8_4w2sh"]
 
@@ -40,6 +41,11 @@ jump_button_action = "ax_button"
 
 [node name="MovementClimb2" parent="RightHand" unique_id=1936488619 instance=ExtResource("7_3egvh")]
 
+[node name="FunctionPointer" parent="RightHand" unique_id=283037577 instance=ExtResource("6_0k3r6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.05, -0.1)
+distance = 4.0
+show_target = true
+
 [node name="LeftHand" type="XRController3D" parent="." unique_id=1781949641]
 tracker = &"left_hand"
 show_when_tracked = true
@@ -53,6 +59,11 @@ strafe = true
 [node name="FunctionPickup" parent="LeftHand" unique_id=1880909503 instance=ExtResource("3_mrmx0")]
 
 [node name="MovementClimb" parent="LeftHand" unique_id=1057739048 instance=ExtResource("7_3egvh")]
+
+[node name="FunctionPointer2" parent="LeftHand" unique_id=895905813 instance=ExtResource("6_0k3r6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.05, -0.1)
+distance = 4.0
+show_target = true
 
 [node name="PlayerBody" parent="." unique_id=1102527396 instance=ExtResource("2_su0si")]
 physics = SubResource("Resource_32p2k")

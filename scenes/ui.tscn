@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://by0ac25tby83k"]
+
+[ext_resource type="Script" uid="uid://deliwjyjnl6xh" path="res://scenes/Ui.cs" id="1_nt7q6"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=368411684]
+
+[node name="UI" type="Control" parent="." unique_id=680843949]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt7q6")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1559888500]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -130.0
+offset_right = 200.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" unique_id=1421281240]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Button" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=1941739884]
+custom_minimum_size = Vector2(400, 100)
+custom_maximum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Game"
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="UI/MarginContainer/VBoxContainer" unique_id=1959075240]
+custom_minimum_size = Vector2(30, 40)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="TextEdit" type="TextEdit" parent="UI/MarginContainer/VBoxContainer" unique_id=1865171146]
+custom_minimum_size = Vector2(10, 80)
+layout_mode = 2
+size_flags_vertical = 4
+placeholder_text = "Whats the worst that i can sayyy  things are better if i stay So long and good night so long and goodnight"
+backspace_deletes_composite_character_enabled = true
+deselect_on_focus_loss_enabled = false
+wrap_mode = 1
