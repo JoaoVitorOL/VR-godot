@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="7_3egvh"]
 [ext_resource type="Script" uid="uid://cjfu28jmrajlo" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="8_4w2sh"]
 [ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="9_epb0m"]
+[ext_resource type="PackedScene" uid="uid://kyhaogt0a4q8" path="res://addons/godot-xr-tools/functions/movement_flight.tscn" id="10_pocfx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_epb0m"]
 resource_local_to_scene = true
@@ -93,6 +94,9 @@ mesh = SubResource("BoxMesh_pocfx")
 
 [node name="Target" parent="LeftHand/FunctionPointer" index="2"]
 visible = true
+
+[node name="MovementFlight" parent="LeftHand" unique_id=875788344 instance=ExtResource("10_pocfx")]
+speed_scale = 8.0
 
 [node name="PlayerBody" parent="." unique_id=1102527396 instance=ExtResource("2_su0si")]
 physics = SubResource("Resource_32p2k")
