@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://by0ac25tby83k"]
 
-[ext_resource type="Script" uid="uid://deliwjyjnl6xh" path="res://scenes/Ui.cs" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://deliwjyjnl6xh" path="res://scripts/Ui.cs" id="1_nt7q6"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=368411684]
 

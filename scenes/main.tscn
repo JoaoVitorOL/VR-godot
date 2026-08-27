@@ -7,41 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://d30yfgtppwy3n" path="res://scenes/pickable_pink_box.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dg6ra73bl1pmg" path="res://scenes/obstacle.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cw6341d4tm6tw" path="res://scenes/rock_climb.tscn" id="5_tbgi4"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dgdb1texynduw" path="res://addons/godot-xr-tools/objects/virtual_keyboard.tscn" id="8_tipki"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_tipki"]
-resource_local_to_scene = true
-size = Vector2(1.5, 0.75)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_85g3d"]
-viewport_path = NodePath("VirtualKeyboard/Viewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_choun"]
-transparency = 1
-cull_mode = 2
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_85g3d")
-texture_filter = 1
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ya4ey"]
-resource_local_to_scene = true
-size = Vector3(1.5, 0.75, 0.02)
-
-[sub_resource type="QuadMesh" id="QuadMesh_eb6dy"]
+[sub_resource type="QuadMesh" id="QuadMesh_choun"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_trceg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ya4ey"]
 viewport_path = NodePath("Viewport2Din3D/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8y0u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_trceg")
+albedo_texture = SubResource("ViewportTexture_ya4ey")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jkv2x"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_trceg"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -59,24 +42,24 @@ size = Vector3(80, 5, 80)
 [sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
 size = Vector3(80, 5, 80)
 
+[sub_resource type="BoxMesh" id="BoxMesh_a8y0u"]
+resource_local_to_scene = true
+material = ExtResource("7_85g3d")
+size = Vector3(0.002, 0.002, 4)
+subdivide_depth = 20
+
+[sub_resource type="BoxMesh" id="BoxMesh_jkv2x"]
+resource_local_to_scene = true
+material = ExtResource("7_85g3d")
+size = Vector3(0.002, 0.002, 4)
+subdivide_depth = 20
+
 [node name="xr_interface" type="Node3D" unique_id=41808954]
 script = ExtResource("1_0wfyh")
 
-[node name="VirtualKeyboard" parent="." unique_id=2096037209 instance=ExtResource("8_tipki")]
-transform = Transform3D(-0.76859796, 0, 0.6397321, 0, 1, 0, -0.6397321, 0, -0.76859796, -5.7536798, 4.837603, 0.95162463)
-visible = false
-transparent = 1
+[node name="VirtualKeyboard" parent="." unique_id=1153884578 instance=ExtResource("8_tipki")]
+transform = Transform3D(-0.49412543, 0, 0.8693908, 0, 1, 0, -0.8693908, 0, -0.49412543, -5.820892, 4.2687597, 1.3657693)
 scene_properties_keys = PackedStringArray("virtual_keyboard_2d.gd")
-
-[node name="Viewport" parent="VirtualKeyboard" index="0"]
-transparent_bg = true
-
-[node name="Screen" parent="VirtualKeyboard" index="1"]
-mesh = SubResource("QuadMesh_tipki")
-surface_material_override/0 = SubResource("StandardMaterial3D_choun")
-
-[node name="CollisionShape3D" parent="VirtualKeyboard/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_ya4ey")
 
 [node name="Viewport2Din3D" parent="." unique_id=1793605963 instance=ExtResource("2_tefeu")]
 transform = Transform3D(-0.18936363, 0, 0.981907, 0, 1, 0, -0.981907, 0, -0.18936363, -6.58842, 4.6411405, -0.20013416)
@@ -86,17 +69,16 @@ unshaded = true
 
 [node name="Viewport" parent="Viewport2Din3D" index="0"]
 size = Vector2i(640, 360)
-render_target_update_mode = 4
 
 [node name="Screen" parent="Viewport2Din3D" index="1"]
-mesh = SubResource("QuadMesh_eb6dy")
-surface_material_override/0 = SubResource("StandardMaterial3D_a8y0u")
+mesh = SubResource("QuadMesh_choun")
+surface_material_override/0 = SubResource("StandardMaterial3D_eb6dy")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 viewport_size = Vector2(640, 360)
 
 [node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_jkv2x")
+shape = SubResource("BoxShape3D_trceg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=787806538]
 camera_attributes = SubResource("CameraAttributesPractical_0wfyh")
@@ -251,9 +233,16 @@ mesh = SubResource("BoxMesh_o5qli")
 [node name="XROrigin3D" parent="." unique_id=1732415484 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8594992, 0)
 
+[node name="Laser" parent="XROrigin3D/RightHand/FunctionPointer" parent_id_path=PackedInt32Array(1732415484, 1858938119) index="1"]
+mesh = SubResource("BoxMesh_a8y0u")
+
+[node name="Laser" parent="XROrigin3D/LeftHand/FunctionPointer" parent_id_path=PackedInt32Array(1732415484, 895905813) index="1"]
+mesh = SubResource("BoxMesh_jkv2x")
+
 [node name="obstacle" parent="." unique_id=509624791 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5.4368424)
 
-[editable path="VirtualKeyboard"]
 [editable path="Viewport2Din3D"]
 [editable path="XROrigin3D"]
+[editable path="XROrigin3D/RightHand/FunctionPointer"]
+[editable path="XROrigin3D/LeftHand/FunctionPointer"]

@@ -10,6 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_0k3r6"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="7_3egvh"]
 [ext_resource type="Script" uid="uid://cjfu28jmrajlo" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="8_4w2sh"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="9_epb0m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_epb0m"]
+resource_local_to_scene = true
+material = ExtResource("9_epb0m")
+size = Vector3(0.002, 0.002, 4)
+subdivide_depth = 20
+
+[sub_resource type="BoxMesh" id="BoxMesh_pocfx"]
+resource_local_to_scene = true
+material = ExtResource("9_epb0m")
+size = Vector3(0.002, 0.002, 4)
+subdivide_depth = 20
 
 [sub_resource type="Resource" id="Resource_32p2k"]
 script = ExtResource("8_4w2sh")
@@ -41,10 +54,18 @@ jump_button_action = "ax_button"
 
 [node name="MovementClimb2" parent="RightHand" unique_id=1936488619 instance=ExtResource("7_3egvh")]
 
-[node name="FunctionPointer" parent="RightHand" unique_id=283037577 instance=ExtResource("6_0k3r6")]
+[node name="FunctionPointer" parent="RightHand" unique_id=1858938119 instance=ExtResource("6_0k3r6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.05, -0.1)
 distance = 4.0
-show_target = true
+show_laser = 2
+target_radius = 0.005
+
+[node name="Laser" parent="RightHand/FunctionPointer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, -2)
+mesh = SubResource("BoxMesh_epb0m")
+
+[node name="Target" parent="RightHand/FunctionPointer" index="2"]
+visible = true
 
 [node name="LeftHand" type="XRController3D" parent="." unique_id=1781949641]
 tracker = &"left_hand"
@@ -60,10 +81,18 @@ strafe = true
 
 [node name="MovementClimb" parent="LeftHand" unique_id=1057739048 instance=ExtResource("7_3egvh")]
 
-[node name="FunctionPointer2" parent="LeftHand" unique_id=895905813 instance=ExtResource("6_0k3r6")]
+[node name="FunctionPointer" parent="LeftHand" unique_id=895905813 instance=ExtResource("6_0k3r6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.05, -0.1)
 distance = 4.0
-show_target = true
+show_laser = 2
+target_radius = 0.005
+
+[node name="Laser" parent="LeftHand/FunctionPointer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, -2)
+mesh = SubResource("BoxMesh_pocfx")
+
+[node name="Target" parent="LeftHand/FunctionPointer" index="2"]
+visible = true
 
 [node name="PlayerBody" parent="." unique_id=1102527396 instance=ExtResource("2_su0si")]
 physics = SubResource("Resource_32p2k")
@@ -72,3 +101,6 @@ ground_control = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody" unique_id=1048758421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14240387, 0)
 shape = SubResource("CapsuleShape3D_5ufli")
+
+[editable path="RightHand/FunctionPointer"]
+[editable path="LeftHand/FunctionPointer"]
