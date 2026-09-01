@@ -28,6 +28,13 @@ project/assembly_name="vrProject"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[input]
+
+toggleAR={
+"deadzone": 0.2,
+"events": []
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -45,6 +52,8 @@ openxr/extensions/hand_tracking=true
 openxr/extensions/hand_tracking_unobstructed_data_source=true
 openxr/extensions/hand_tracking_controller_data_source=true
 openxr/extensions/hand_interaction_profile=true
+openxr/extensions/spatial_entity/enable_marker_tracking=true
+openxr/extensions/spatial_entity/enable_builtin_marker_tracking=true
 shaders/enabled=true
 openxr/extensions/meta/hand_tracking_aim=true
 openxr/extensions/meta/hand_tracking_mesh=true
@@ -52,3 +61,4 @@ openxr/extensions/meta/hand_tracking_capsules=true
 openxr/extensions/meta/passthrough=true
 openxr/extensions/meta/face_tracking=true
 openxr/extensions/meta/body_tracking=true
+openxr/extensions/magic_leap/marker_understanding=true

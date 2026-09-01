@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c6akbitq4g2h"]
 
+[ext_resource type="Script" uid="uid://ddgcp0ofusxt2" path="res://scripts/RightHand.cs" id="1_31mef"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_knajx"]
 [ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="1_su0si"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_bc51u"]
@@ -13,13 +14,13 @@
 [ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="9_epb0m"]
 [ext_resource type="PackedScene" uid="uid://kyhaogt0a4q8" path="res://addons/godot-xr-tools/functions/movement_flight.tscn" id="10_pocfx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_epb0m"]
+[sub_resource type="BoxMesh" id="BoxMesh_31mef"]
 resource_local_to_scene = true
 material = ExtResource("9_epb0m")
 size = Vector3(0.002, 0.002, 4)
 subdivide_depth = 20
 
-[sub_resource type="BoxMesh" id="BoxMesh_pocfx"]
+[sub_resource type="BoxMesh" id="BoxMesh_eh4o4"]
 resource_local_to_scene = true
 material = ExtResource("9_epb0m")
 size = Vector3(0.002, 0.002, 4)
@@ -42,6 +43,7 @@ current = true
 [node name="RightHand" type="XRController3D" parent="." unique_id=2105200422]
 tracker = &"right_hand"
 show_when_tracked = true
+script = ExtResource("1_31mef")
 
 [node name="RightHand" parent="RightHand" unique_id=1592040454 instance=ExtResource("1_su0si")]
 
@@ -63,7 +65,7 @@ target_radius = 0.005
 
 [node name="Laser" parent="RightHand/FunctionPointer" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, -2)
-mesh = SubResource("BoxMesh_epb0m")
+mesh = SubResource("BoxMesh_31mef")
 
 [node name="Target" parent="RightHand/FunctionPointer" index="2"]
 visible = true
@@ -90,7 +92,7 @@ target_radius = 0.005
 
 [node name="Laser" parent="LeftHand/FunctionPointer" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, -2)
-mesh = SubResource("BoxMesh_pocfx")
+mesh = SubResource("BoxMesh_eh4o4")
 
 [node name="Target" parent="LeftHand/FunctionPointer" index="2"]
 visible = true

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cw6341d4tm6tw" path="res://scenes/rock_climb.tscn" id="5_tbgi4"]
 [ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dgdb1texynduw" path="res://addons/godot-xr-tools/objects/virtual_keyboard.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://u2dqqrf5acvw" path="res://scenes/controleGuindaste.tscn" id="10_choun"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_choun"]
 resource_local_to_scene = true
@@ -37,10 +38,10 @@ size = Vector3(1, 2.1206055, 2.43)
 size = Vector3(1, 2.121, 2.43)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
-size = Vector3(80, 5, 80)
+size = Vector3(25, 5, 25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
-size = Vector3(80, 5, 80)
+size = Vector3(25, 5, 25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a8y0u"]
 resource_local_to_scene = true
@@ -54,8 +55,9 @@ material = ExtResource("7_85g3d")
 size = Vector3(0.002, 0.002, 4)
 subdivide_depth = 20
 
-[node name="xr_interface" type="Node3D" unique_id=41808954]
+[node name="xr_interface" type="Node3D" unique_id=41808954 node_paths=PackedStringArray("guindaste_virtual")]
 script = ExtResource("1_0wfyh")
+guindaste_virtual = NodePath("Controle guindaste")
 
 [node name="VirtualKeyboard" parent="." unique_id=1153884578 instance=ExtResource("8_tipki")]
 transform = Transform3D(-0.49412543, 0, 0.8693908, 0, 1, 0, -0.8693908, 0, -0.49412543, -5.820892, 4.2687597, 1.3657693)
@@ -241,6 +243,9 @@ mesh = SubResource("BoxMesh_jkv2x")
 
 [node name="obstacle" parent="." unique_id=509624791 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5.4368424)
+
+[node name="Controle guindaste" parent="." unique_id=1938534117 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0633197, 4.0043583, 5.723438)
 
 [editable path="Viewport2Din3D"]
 [editable path="XROrigin3D"]
