@@ -44,6 +44,7 @@ current = true
 tracker = &"right_hand"
 show_when_tracked = true
 script = ExtResource("1_31mef")
+_cooldownTime = 2.0
 
 [node name="RightHand" parent="RightHand" unique_id=1592040454 instance=ExtResource("1_su0si")]
 

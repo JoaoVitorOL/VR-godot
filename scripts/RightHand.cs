@@ -3,6 +3,8 @@ using System;
 
 public partial class RightHand : XRController3D
 {
+
+  
     private bool _isArMode = false;
     private XRInterface _xrInterface;
 
@@ -56,6 +58,10 @@ public partial class RightHand : XRController3D
             : XRInterface.EnvironmentBlendModeEnum.Opaque;
 
         _xrInterface.SetEnvironmentBlendMode(newMode);
+
+        // Oculta/exibe todos os nós do grupo "Cenario"
+        GetTree().CallGroup("Cenario", "set_visible", !_isArMode);
+
         GD.Print(_isArMode ? "Modo AR (Passthrough) ativado" : "Modo VR ativado");
     }
 }

@@ -29,19 +29,21 @@ texture_filter = 1
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
+[sub_resource type="Environment" id="Environment_31mef"]
+
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0wfyh"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_m7nii"]
-size = Vector3(1, 2.1206055, 2.43)
-
-[sub_resource type="BoxMesh" id="BoxMesh_m7nii"]
-size = Vector3(1, 2.121, 2.43)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(25, 5, 25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
 size = Vector3(25, 5, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7nii"]
+size = Vector3(1, 2.1206055, 2.43)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m7nii"]
+size = Vector3(1, 2.121, 2.43)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a8y0u"]
 resource_local_to_scene = true
@@ -83,154 +85,161 @@ viewport_size = Vector2(640, 360)
 shape = SubResource("BoxShape3D_trceg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=787806538]
+environment = SubResource("Environment_31mef")
 camera_attributes = SubResource("CameraAttributesPractical_0wfyh")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=342239785]
-transform = Transform3D(1, 0, 0, 0, -0.057145845, 0.9983659, 0, -0.9983659, -0.057145845, 0, 53.020153, 0)
-shadow_enabled = true
+[node name="cenário" type="Node3D" parent="." unique_id=770077752 groups=["Cenario"]]
 
-[node name="wall" type="Node" parent="." unique_id=1916045464]
+[node name="obstacle" parent="cenário" unique_id=509624791 instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5.4368424)
 
-[node name="table" type="StaticBody3D" parent="wall" unique_id=125253209]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4539557, 3.0494993, -0.05972159)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/table" unique_id=1873149517]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
-shape = SubResource("BoxShape3D_m7nii")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall/table/CollisionShape3D" unique_id=1766900779]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
-mesh = SubResource("BoxMesh_m7nii")
-
-[node name="table2" type="StaticBody3D" parent="wall" unique_id=1213550250]
-transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 3.1836274, -6.565732)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/table2" unique_id=890346189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
-shape = SubResource("BoxShape3D_m7nii")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall/table2/CollisionShape3D" unique_id=1356533495]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
-mesh = SubResource("BoxMesh_m7nii")
-
-[node name="table3" type="StaticBody3D" parent="wall" unique_id=401527657]
-transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 4.9177055, -6.565732)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/table3" unique_id=277163634]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
-shape = SubResource("BoxShape3D_m7nii")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall/table3/CollisionShape3D" unique_id=851425152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
-mesh = SubResource("BoxMesh_m7nii")
-
-[node name="table4" type="StaticBody3D" parent="wall" unique_id=1702684862]
-transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 6.111561, -6.565732)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/table4" unique_id=16041203]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
-shape = SubResource("BoxShape3D_m7nii")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall/table4/CollisionShape3D" unique_id=1693758832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
-mesh = SubResource("BoxMesh_m7nii")
-
-[node name="table5" type="StaticBody3D" parent="wall" unique_id=303010125]
-transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 7.302248, -6.565732)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/table5" unique_id=8474564]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
-shape = SubResource("BoxShape3D_m7nii")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall/table5/CollisionShape3D" unique_id=1622509040]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
-mesh = SubResource("BoxMesh_m7nii")
-
-[node name="Climbable" parent="wall" unique_id=1444490573 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 4.578417, -6.0785236)
-
-[node name="Climbable2" parent="wall" unique_id=1491415825 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 3.8808126, -6.0785236)
-
-[node name="Climbable3" parent="wall" unique_id=800141238 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 4.2385187, -6.0785236)
-
-[node name="Climbable4" parent="wall" unique_id=1537585209 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 5.0181637, -6.0785236)
-
-[node name="Climbable5" parent="wall" unique_id=869987306 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93374825, 5.0181637, -6.0785236)
-
-[node name="Climbable6" parent="wall" unique_id=705797418 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5314398, 5.3009477, -6.0785236)
-
-[node name="Climbable7" parent="wall" unique_id=521529959 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0978298, 5.8984776, -6.0785236)
-
-[node name="Climbable8" parent="wall" unique_id=940105515 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6937032, 5.8984776, -6.0785236)
-
-[node name="Climbable9" parent="wall" unique_id=1132826464 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 5.8984776, -6.0785236)
-
-[node name="Climbable10" parent="wall" unique_id=503128355 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 5.8984776, -6.0785236)
-
-[node name="Climbable11" parent="wall" unique_id=1170067558 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 7.1565895, -6.0785236)
-
-[node name="Climbable12" parent="wall" unique_id=798915872 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 6.4589853, -6.0785236)
-
-[node name="Climbable13" parent="wall" unique_id=1733454414 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 6.8166914, -6.0785236)
-
-[node name="Climbable14" parent="wall" unique_id=2006319138 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 7.5963364, -6.0785236)
-
-[node name="Climbable15" parent="wall" unique_id=606067954 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93374825, 7.5963364, -6.0785236)
-
-[node name="Climbable16" parent="wall" unique_id=815099570 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5314398, 7.8791203, -6.0785236)
-
-[node name="Climbable17" parent="wall" unique_id=1710209355 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0978298, 8.47665, -6.0785236)
-
-[node name="Climbable18" parent="wall" unique_id=1629070166 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6937032, 8.47665, -6.0785236)
-
-[node name="Climbable19" parent="wall" unique_id=2428526 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 8.47665, -6.0785236)
-
-[node name="Climbable20" parent="wall" unique_id=896182375 instance=ExtResource("5_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 8.47665, -6.0785236)
-
-[node name="pickable" type="Node" parent="." unique_id=2084779802]
-
-[node name="PickableObject" parent="pickable" unique_id=609690289 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, 0)
-
-[node name="PickableObject2" parent="pickable" unique_id=2026609180 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, -0.5524287)
-
-[node name="PickableObject3" parent="pickable" unique_id=711345668 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, -1.0119295)
-
-[node name="PickableObject4" parent="pickable" unique_id=519421951 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, 0.6916294)
-
-[node name="PickableObject5" parent="pickable" unique_id=1576609068 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, 0.3740602)
-
-[node name="floor" type="StaticBody3D" parent="." unique_id=132441923]
+[node name="floor" type="StaticBody3D" parent="cenário" unique_id=132441923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7894058)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1400794984]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenário/floor" unique_id=1400794984]
 shape = SubResource("BoxShape3D_sgp6g")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor/CollisionShape3D" unique_id=1930322572]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cenário/floor/CollisionShape3D" unique_id=1930322572]
 mesh = SubResource("BoxMesh_o5qli")
+
+[node name="wall" type="Node3D" parent="cenário" unique_id=1621254745]
+
+[node name="table" type="StaticBody3D" parent="cenário/wall" unique_id=125253209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4539557, 3.0494993, -0.05972159)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenário/wall/table" unique_id=1873149517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
+shape = SubResource("BoxShape3D_m7nii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cenário/wall/table/CollisionShape3D" unique_id=1766900779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
+mesh = SubResource("BoxMesh_m7nii")
+
+[node name="table2" type="StaticBody3D" parent="cenário/wall" unique_id=1213550250]
+transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 3.1836274, -6.565732)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenário/wall/table2" unique_id=890346189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
+shape = SubResource("BoxShape3D_m7nii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cenário/wall/table2/CollisionShape3D" unique_id=1356533495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
+mesh = SubResource("BoxMesh_m7nii")
+
+[node name="table3" type="StaticBody3D" parent="cenário/wall" unique_id=401527657]
+transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 4.9177055, -6.565732)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenário/wall/table3" unique_id=277163634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
+shape = SubResource("BoxShape3D_m7nii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cenário/wall/table3/CollisionShape3D" unique_id=851425152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
+mesh = SubResource("BoxMesh_m7nii")
+
+[node name="table4" type="StaticBody3D" parent="cenário/wall" unique_id=1702684862]
+transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 6.111561, -6.565732)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenário/wall/table4" unique_id=16041203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
+shape = SubResource("BoxShape3D_m7nii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cenário/wall/table4/CollisionShape3D" unique_id=1693758832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
+mesh = SubResource("BoxMesh_m7nii")
+
+[node name="table5" type="StaticBody3D" parent="cenário/wall" unique_id=303010125]
+transform = Transform3D(0.04189393, 0, -0.9991221, 0, 1, 0, 0.9991221, 0, 0.04189393, -1.8090563, 7.302248, -6.565732)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenário/wall/table5" unique_id=8474564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56030273, -0.12972164)
+shape = SubResource("BoxShape3D_m7nii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cenário/wall/table5/CollisionShape3D" unique_id=1622509040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01108408, -0.0076093078)
+mesh = SubResource("BoxMesh_m7nii")
+
+[node name="Climbable" parent="cenário/wall" unique_id=1444490573 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 4.578417, -6.0785236)
+
+[node name="Climbable2" parent="cenário/wall" unique_id=1491415825 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 3.8808126, -6.0785236)
+
+[node name="Climbable3" parent="cenário/wall" unique_id=800141238 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 4.2385187, -6.0785236)
+
+[node name="Climbable4" parent="cenário/wall" unique_id=1537585209 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 5.0181637, -6.0785236)
+
+[node name="Climbable5" parent="cenário/wall" unique_id=869987306 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93374825, 5.0181637, -6.0785236)
+
+[node name="Climbable6" parent="cenário/wall" unique_id=705797418 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5314398, 5.3009477, -6.0785236)
+
+[node name="Climbable7" parent="cenário/wall" unique_id=521529959 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0978298, 5.8984776, -6.0785236)
+
+[node name="Climbable8" parent="cenário/wall" unique_id=940105515 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6937032, 5.8984776, -6.0785236)
+
+[node name="Climbable9" parent="cenário/wall" unique_id=1132826464 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 5.8984776, -6.0785236)
+
+[node name="Climbable10" parent="cenário/wall" unique_id=503128355 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 5.8984776, -6.0785236)
+
+[node name="Climbable11" parent="cenário/wall" unique_id=1170067558 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 7.1565895, -6.0785236)
+
+[node name="Climbable12" parent="cenário/wall" unique_id=798915872 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5460484, 6.4589853, -6.0785236)
+
+[node name="Climbable13" parent="cenário/wall" unique_id=1733454414 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 6.8166914, -6.0785236)
+
+[node name="Climbable14" parent="cenário/wall" unique_id=2006319138 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106671, 7.5963364, -6.0785236)
+
+[node name="Climbable15" parent="cenário/wall" unique_id=606067954 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93374825, 7.5963364, -6.0785236)
+
+[node name="Climbable16" parent="cenário/wall" unique_id=815099570 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5314398, 7.8791203, -6.0785236)
+
+[node name="Climbable17" parent="cenário/wall" unique_id=1710209355 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0978298, 8.47665, -6.0785236)
+
+[node name="Climbable18" parent="cenário/wall" unique_id=1629070166 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6937032, 8.47665, -6.0785236)
+
+[node name="Climbable19" parent="cenário/wall" unique_id=2428526 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 8.47665, -6.0785236)
+
+[node name="Climbable20" parent="cenário/wall" unique_id=896182375 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152681, 8.47665, -6.0785236)
+
+[node name="pickable" type="Node3D" parent="cenário" unique_id=425836398]
+
+[node name="PickableObject" parent="cenário/pickable" unique_id=609690289 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, 0)
+
+[node name="PickableObject2" parent="cenário/pickable" unique_id=2026609180 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, -0.5524287)
+
+[node name="PickableObject3" parent="cenário/pickable" unique_id=711345668 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, -1.0119295)
+
+[node name="PickableObject4" parent="cenário/pickable" unique_id=519421951 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, 0.6916294)
+
+[node name="PickableObject5" parent="cenário/pickable" unique_id=1576609068 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2736926, 4.730282, 0.3740602)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=342239785]
+transform = Transform3D(0.5218912, -0.8528339, 0.017441701, 0.014220208, 0.029142775, 0.9994741, -0.8528936, -0.52136856, 0.027336821, 0.012968063, 11.452179, -4.88838)
+light_energy = 0.81
+shadow_enabled = true
 
 [node name="XROrigin3D" parent="." unique_id=1732415484 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8594992, 0)
@@ -240,9 +249,6 @@ mesh = SubResource("BoxMesh_a8y0u")
 
 [node name="Laser" parent="XROrigin3D/LeftHand/FunctionPointer" parent_id_path=PackedInt32Array(1732415484, 895905813) index="1"]
 mesh = SubResource("BoxMesh_jkv2x")
-
-[node name="obstacle" parent="." unique_id=509624791 instance=ExtResource("4_jyhfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5.4368424)
 
 [node name="Controle guindaste" parent="." unique_id=1938534117 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0633197, 4.0043583, 5.723438)
