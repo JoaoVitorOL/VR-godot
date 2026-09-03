@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkoplg12qyyy1"]
 
-[ext_resource type="Script" uid="uid://b4texge5sjdjb" path="res://scripts/xr_interface.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://b4texge5sjdjb" path="res://scripts/xr_interface_QRcode.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://c6akbitq4g2h" path="res://scenes/xr_origin.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://by0ac25tby83k" path="res://scenes/ui.tscn" id="3_o6xl0"]
@@ -11,21 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://dgdb1texynduw" path="res://addons/godot-xr-tools/objects/virtual_keyboard.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://u2dqqrf5acvw" path="res://scenes/controleGuindaste.tscn" id="10_choun"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_choun"]
+[sub_resource type="QuadMesh" id="QuadMesh_ya4ey"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ya4ey"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_eb6dy"]
 viewport_path = NodePath("Viewport2Din3D/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_ya4ey")
+albedo_texture = SubResource("ViewportTexture_eb6dy")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_trceg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8y0u"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -45,20 +45,20 @@ size = Vector3(1, 2.1206055, 2.43)
 [sub_resource type="BoxMesh" id="BoxMesh_m7nii"]
 size = Vector3(1, 2.121, 2.43)
 
-[sub_resource type="BoxMesh" id="BoxMesh_a8y0u"]
-resource_local_to_scene = true
-material = ExtResource("7_85g3d")
-size = Vector3(0.002, 0.002, 4)
-subdivide_depth = 20
-
 [sub_resource type="BoxMesh" id="BoxMesh_jkv2x"]
 resource_local_to_scene = true
 material = ExtResource("7_85g3d")
 size = Vector3(0.002, 0.002, 4)
 subdivide_depth = 20
 
+[sub_resource type="BoxMesh" id="BoxMesh_jbj1t"]
+resource_local_to_scene = true
+material = ExtResource("7_85g3d")
+size = Vector3(0.002, 0.002, 4)
+subdivide_depth = 20
+
 [node name="xr_interface" type="Node3D" unique_id=41808954 node_paths=PackedStringArray("guindaste_virtual")]
-script = ExtResource("1_0wfyh")
+script = ExtResource("1_choun")
 guindaste_virtual = NodePath("Controle guindaste")
 
 [node name="VirtualKeyboard" parent="." unique_id=1153884578 instance=ExtResource("8_tipki")]
@@ -75,14 +75,14 @@ unshaded = true
 size = Vector2i(640, 360)
 
 [node name="Screen" parent="Viewport2Din3D" index="1"]
-mesh = SubResource("QuadMesh_choun")
-surface_material_override/0 = SubResource("StandardMaterial3D_eb6dy")
+mesh = SubResource("QuadMesh_ya4ey")
+surface_material_override/0 = SubResource("StandardMaterial3D_trceg")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 viewport_size = Vector2(640, 360)
 
 [node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_trceg")
+shape = SubResource("BoxShape3D_a8y0u")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=787806538]
 environment = SubResource("Environment_31mef")
@@ -245,10 +245,10 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8594992, 0)
 
 [node name="Laser" parent="XROrigin3D/RightHand/FunctionPointer" parent_id_path=PackedInt32Array(1732415484, 1858938119) index="1"]
-mesh = SubResource("BoxMesh_a8y0u")
+mesh = SubResource("BoxMesh_jkv2x")
 
 [node name="Laser" parent="XROrigin3D/LeftHand/FunctionPointer" parent_id_path=PackedInt32Array(1732415484, 895905813) index="1"]
-mesh = SubResource("BoxMesh_jkv2x")
+mesh = SubResource("BoxMesh_jbj1t")
 
 [node name="Controle guindaste" parent="." unique_id=1938534117 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0633197, 4.0043583, 5.723438)

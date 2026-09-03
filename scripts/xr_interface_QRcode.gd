@@ -29,8 +29,8 @@ func _enable_qr_code_capability() -> void:
 	if ClassDB.class_exists("OpenXRMarkerExtension"):
 		var marker_ext = ClassDB.instantiate("OpenXRMarkerExtension")
 		if marker_ext and marker_ext.has_method("set_marker_type_enabled"):
-			# 0 = QR_CODE na API OpenXR Marker Tracking
-			marker_ext.call("set_marker_type_enabled", 0, true)
+			# 1 = QR_CODE na API OpenXR Marker Tracking
+			marker_ext.call("set_marker_type_enabled", 1, true)
 			print("[CONFIG] Extension OpenXRMarkerExtension ativada com sucesso para QR Code!")
 		else:
 			print("[AVISO] Classe OpenXRMarkerExtension encontrada, mas sem o metodo set_marker_type_enabled.")
