@@ -26,7 +26,6 @@ func _ready() -> void:
 func _enable_qr_code_capability() -> void:
 	print("[CONFIG] Verificando subsistema de marcadores espaciais...")
 	
-	# Verifica e habilita o OpenXRMarkerExtension do plugin Godot OpenXR Vendors
 	if ClassDB.class_exists("OpenXRMarkerExtension"):
 		var marker_ext = ClassDB.instantiate("OpenXRMarkerExtension")
 		if marker_ext and marker_ext.has_method("set_marker_type_enabled"):
@@ -37,32 +36,32 @@ func _enable_qr_code_capability() -> void:
 			print("[AVISO] Classe OpenXRMarkerExtension encontrada, mas sem o metodo set_marker_type_enabled.")
 	else:
 		print("[AVISO] Classe OpenXRMarkerExtension nao registrada no Engine.")
+
+
 func _on_tracker_added(tracker_name: StringName, _type: int) -> void:
 	print("[EVENTO] Novo tracker detectado: ", tracker_name)
 	var tracker = XRServer.get_tracker(tracker_name)
 	
 	if tracker is OpenXRMarkerTracker:
-		var marker_str_id = str(tracker.marker_id)
 		var raw_content = ""
+		var content_data = tracker.get_marker_data()
 		
-		# Tenta extrair a propriedade content (pode vir como PackedByteArray ou String)
-		var content_data = tracker.get("content")
 		if content_data is PackedByteArray:
 			raw_content = content_data.get_string_from_utf8()
-		elif content_data != null:
-			raw_content = str(content_data)
+		elif content_data is String:
+			raw_content = content_data
 			
-		print("[DETECCAO] ID: ", marker_str_id, " | Conteudo lido: ", raw_content)
+		print("[DETECCAO] Conteudo lido do QR Code: ", raw_content)
 
-		# Ancora se o texto for igual, se for ID 0, ou se a variavel de busca estiver vazia
-		if raw_content == target_qr_content or raw_content.contains(target_qr_content) or target_qr_content.is_empty() or marker_str_id == "0":
+		if raw_content == target_qr_content:
 			print("[SUCESSO] Marcador reconhecido! Ancorando guindaste...")
 			_anchor_guindaste_to_qr(tracker_name)
 		else:
 			print("[IGNORADO] QR Code lido nao confere com: ", target_qr_content)
 	else:
 		print("[SISTEMA] Tracker ignorado por nao ser marcador visual.")
-		
+
+
 
 func _anchor_guindaste_to_qr(tracker_name: StringName) -> void:
 	if active_anchor:
