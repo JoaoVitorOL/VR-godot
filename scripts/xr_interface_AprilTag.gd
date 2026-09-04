@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var guindaste_virtual: Node3D
-@export var target_qr_content: String = "controleguindaste"
 
 var active_anchor: XRAnchor3D
 
@@ -15,12 +14,9 @@ func _on_tracker_added(tracker_name: StringName, _type: int) -> void:
 	var tracker = XRServer.get_tracker(tracker_name)
 
 	if tracker is OpenXRMarkerTracker:
-		if tracker.marker_type == OpenXRSpatialComponentMarkerList.MARKER_TYPE_QRCODE:
-			var content = tracker.get_marker_data()
-
-			if content == target_qr_content:
-				print("QR Code encontrado: ", content)
-				_anchor_guindaste(tracker_name)
+		if tracker.marker_type == OpenXRSpatialComponentMarkerList.MARKER_TYPE_APRIL_TAG:
+			print("AprilTag detectada! ID: ", tracker.marker_id)
+			_anchor_guindaste(tracker_name)
 
 
 func _anchor_guindaste(tracker_name: StringName) -> void:
@@ -48,4 +44,4 @@ func _anchor_guindaste(tracker_name: StringName) -> void:
 		active_anchor.add_child(guindaste_virtual)
 		guindaste_virtual.transform = Transform3D.IDENTITY
 
-		print("Guindaste ancorado no QR Code!")
+		print("Guindaste ancorado na AprilTag!")
